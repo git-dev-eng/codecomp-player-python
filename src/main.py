@@ -1,7 +1,7 @@
 import os
 import time
 import json
-# import google.cloud.logging
+import google.cloud.logging
 import logging
 from config import _TEAM
 from game_api import get_game_status, join_game, make_guess
@@ -12,18 +12,18 @@ _MY_GUESS_TRACKER = {}
 _TEAM_NOT_PROVIDED = (
     "Please put your team name and password into config.py and start again."
 )
-# client = google.cloud.logging.Client()
-# client.get_default_handler()
-# client.setup_logging()
+client = google.cloud.logging.Client()
+client.get_default_handler()
+client.setup_logging()
 
 team = _TEAM
 if team is None or _TEAM.strip() == "":
     print(_TEAM_NOT_PROVIDED)
     exit()
-print()
-print("Game Started")
-# print()
-print("I am playing as {}".format(_TEAM))
+
+logging.info()
+logging.info("Game Started")
+logging.info("I am playing as {}".format(_TEAM))
 
 def game_status_received(err, data):
     if err is not None:
