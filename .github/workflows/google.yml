@@ -59,4 +59,4 @@ jobs:
     # Deploy the Application to App Engine
     - name: Deploy the application to Google App Engine
       run: |-
-        gcloud app deploy --version=python-bot --project=$GCP_PROJECT --image-url=gcr.io/$GCP_PROJECT/codecomp-python-bot --appyaml=app.yaml
+        gcloud app deploy --version=python-bot --project=$GCP_PROJECT --image-url=eu.gcr.io/$GCP_PROJECT/codecomp-python-bot --appyaml=app.yaml
