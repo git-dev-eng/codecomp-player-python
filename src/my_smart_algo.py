@@ -33,7 +33,7 @@ def apply_guess(game_id, round_id, secret_length, participants, guess_tracker):
             secret_range = math.pow(10, secret_length - 1)
             secret = random.randint(secret_range, secret_range * 10 - 1)
             guess = {}
-            guess["team"] = participant["name"]
+            guess["team"] = participant["teamId"]
             guess["guess"] = str(secret)
             my_guess["guesses"].append(guess)
 
