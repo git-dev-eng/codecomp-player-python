@@ -14,8 +14,8 @@ def apply_guess(game_id, round_id, secret_length, participants, guess_tracker):
     print(participants)
     for index in range(len("participants")):
         if (
-            not partcipants[index]["isAlive"]
-            or partcipants[index]["teamId"] == _TEAM
+            not participants[index]["isAlive"]
+            or participants[index]["teamId"] == _TEAM
         ):
             dead_participants_index.append(index)
 
