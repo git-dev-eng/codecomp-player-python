@@ -4,7 +4,7 @@ import json
 from config import _TEAM
 
 
-def apply_guess(*args, **kwargs):
+def apply_guess(game_id, round_id, secret_length, participants, guess_tracker):
 
     my_guess = {"guesses": []}
 
@@ -12,25 +12,25 @@ def apply_guess(*args, **kwargs):
     # Also remove "dead" enemies
     dead_participants_index = []
     print(kwargs)
-    for index in range(len(kwargs.get("participants", []))):
+    for index in range(len("participants", [])):
         if (
-            not kwargs.get("participants", {})[index]["isAlive"]
-            or kwargs.get("participants", {})[index]["name"] == _TEAM.upper()
+            not partcipants[index]["isAlive"]
+            or partcipants[index]["teamId"] == _TEAM
         ):
             dead_participants_index.append(index)
 
     if len(dead_participants_index) > 0:
         for index in sorted(dead_participants_index, reverse=True):
-            del kwargs["participants"][index]
+            del participants[index]
 
-    total_participants = len(kwargs["participants"])
+    total_participants = len(participants)
 
     for random_guess in range(5):
         try:
-            participant = kwargs["participants"][
+            participant = participants[
                 random.randint(0, total_participants - 1)
             ]
-            secret_range = math.pow(10, kwargs["secret_length"] - 1)
+            secret_range = math.pow(10, secret_length - 1)
             secret = random.randint(secret_range, secret_range * 10 - 1)
             guess = {}
             guess["team"] = participant["name"]
