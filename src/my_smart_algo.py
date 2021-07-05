@@ -12,7 +12,7 @@ def apply_guess(game_id, round_id, secret_length, participants, guess_tracker):
     # Also remove "dead" enemies
     dead_participants_index = []
     print(participants)
-    for index in range(len("participants", [])):
+    for index in range(len("participants")):
         if (
             not partcipants[index]["isAlive"]
             or partcipants[index]["teamId"] == _TEAM
