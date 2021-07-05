@@ -46,12 +46,11 @@ def game_status_received(err, data):
         key = str(data["gameId"]) + "-" + str(data["roundId"])
         joined_status = False
         alive_status = False
-        team_name = _TEAM.upper()
+        team_name = _TEAM
         for participant in data["participants"]:
             if (
-                "name" in participant
-                and participant["name"] == team_name
-                and participant["joinedInThisRound"] == True
+                "teamId" in participant
+                and participant["teamId"] == team_name
             ):
                 joined_status = True
                 alive_status = participant["isAlive"]
