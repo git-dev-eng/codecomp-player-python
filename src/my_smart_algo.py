@@ -11,7 +11,8 @@ def apply_guess(*args, **kwargs):
     # Remove myself, I don't want to guess my secret and eventually suicide. Do I? :)
     # Also remove "dead" enemies
     dead_participants_index = []
-    for index in range(len(kwargs.get("participants", 0))):
+    print(kwargs)
+    for index in range(len(kwargs.get("participants", []))):
         if (
             not kwargs.get("participants", {})[index]["isAlive"]
             or kwargs.get("participants", {})[index]["name"] == _TEAM.upper()
