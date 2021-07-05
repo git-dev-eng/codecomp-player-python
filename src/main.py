@@ -65,7 +65,8 @@ def game_status_received(err, data):
                     print(err_join)
                 else:
                     print("Join Successful")
-                    print(data_join["message"])
+                    print(data_join)
+                    #print(data_join["message"])
 
             else:
                 print("Already joined, waiting to play...")
