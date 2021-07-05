@@ -36,7 +36,9 @@ jobs:
 
     # Enable Required APIs on project
     - name: Enable APIs
-      run: gcloud services enable serviceusage.googleapis.com  logging.googleapis.com cloudresourcemanager.googleapis.com containerregistry.googleapis.com admin.googleapis.com appengine.googleapis.com storage-api.googleapis.com
+      run: |-
+        gcloud services enable serviceusage.googleapis.com  logging.googleapis.com cloudresourcemanager.googleapis.com containerregistry.googleapis.com admin.googleapis.com appengine.googleapis.com storage-api.googleapis.com
+        gcloud components update
 
     # Register gcloud as Docker Credential Helper
     - name: Configure Docker and Install Beta
