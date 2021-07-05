@@ -11,7 +11,7 @@ def apply_guess(game_id, round_id, secret_length, participants, guess_tracker):
     # Remove myself, I don't want to guess my secret and eventually suicide. Do I? :)
     # Also remove "dead" enemies
     dead_participants_index = []
-    print(kwargs)
+    print(participants)
     for index in range(len("participants", [])):
         if (
             not partcipants[index]["isAlive"]
