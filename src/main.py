@@ -21,7 +21,7 @@ if team is None or _TEAM.strip() == "":
     print(_TEAM_NOT_PROVIDED)
     exit()
 
-print()
+print("")
 print("Game Started")
 print("I am playing as {}".format(_TEAM))
 
