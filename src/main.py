@@ -1,8 +1,6 @@
 import os
 import time
 import json
-import google.cloud.logging
-import logging
 from config import _TEAM
 from game_api import get_game_status, join_game, make_guess
 from my_smart_algo import apply_guess
@@ -12,9 +10,6 @@ _MY_GUESS_TRACKER = {}
 _TEAM_NOT_PROVIDED = (
     "Please put your team name and password into config.py and start again."
 )
-client = google.cloud.logging.Client()
-client.get_default_handler()
-client.setup_logging()
 
 team = _TEAM
 if team is None or _TEAM.strip() == "":
@@ -32,7 +27,7 @@ def game_status_received(err, data):
     else:
         
         print(
-            "GameId: {}\nRoundId: {}\nStatus: {}\n#Participants: {}".format(
+            "\nGameId: {}\nRoundId: {}\nStatus: {}\n#Participants: {}".format(
                 data["gameId"],
                 data["roundId"],
                 data["status"],
